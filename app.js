@@ -26,5 +26,5 @@ buttons.forEach(
          if(button) button.click();
      } 
 
-    document.addEventListener('keydown', keyNoteDown);
+    document.addEventListener('keypress', keyNoteDown);
 
