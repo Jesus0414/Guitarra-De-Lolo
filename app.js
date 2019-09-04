@@ -3,6 +3,7 @@ const buttons = document.querySelectorAll('button');
 const playnote =() => {
     const button = event.target;
     const note = button.dataset.note;
+    const pito = button.dataset.pito;
     const audioId = `audio${note}`;
 
     console.log(audioId);
@@ -25,6 +26,14 @@ buttons.forEach(
          const button = document.querySelector(`button[data-key="${key}"]`);
          if(button) button.click();
      } 
-
     document.addEventListener('keypress', keyNoteDown);
+
+    const keyup = event => {
+        console.log(event);
+        const key = event.key;
+        console.log(key);
+        const button = document.querySelector(`button[data-key="${key}"]`);
+        if(button) button.click();
+    } 
+    object.addEventListener('keyup', keyup);
 
