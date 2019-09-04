@@ -20,7 +20,7 @@ const shutup = event => {
     const button = document.querySelector(`button[data-key="${key}"]`);
     if(button){ 
         const note = button.dataset.note;
-        const audioId = `audio${note}`;
+        const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}`;
         const audio = document.getElementById(audioId);
         audio.pause();
         audio.currentTime = 0;
