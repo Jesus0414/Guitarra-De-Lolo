@@ -3,8 +3,7 @@ const buttons = document.querySelectorAll('button');
 const playnote = event => {
     const button = event.target;
     const note = button.dataset.note;
-    const pito = button.dataset.pito;
-    const audioId = `audio${pito}`;
+    const audioId = `audio${note}`;
     
     const audio = document.getElementById(audioId);
 
@@ -18,9 +17,8 @@ const shutup = event => {
     const key = event.key;
     const button = document.querySelector(`button[data-key="${key}"]`);
     if(button){ 
-        const pito = button.dataset.pito;
-        const audioId = `audio${pito}`;
-        //const note = button.dataset.note;
+        const note = button.dataset.note;
+        const audioId = `audio${note}`;
         const audio = document.getElementById(audioId);
         audio.pause();
         audio.currentTime = 0;
