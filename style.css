@@ -1,3 +1,12 @@
 body{
     background-image: url(Sources/Background.gif);
 }
+
+img{
+    width: 1000px;
+    height: 400px;
+}
+
+button{
+    vertical-align: auto;
+}
