@@ -15,22 +15,8 @@ const playnote =() => {
     
 }
 
-const shutup =() => {
-    const button = event.target;
-    const note = button.dataset.note;
-    const audioId = `audio${note}`;
-
-    console.log(audioId);
-    const audio = document.getElementById(audioId);
-    console.log(audio);
-
-    audio.pause();
-    audio.currentTime = 0;
-}
-
-
 buttons.forEach(button => button.addEventListener('click', playnote));
-buttons.forEach(button => button.addEventListener('keyup', shutup));
+
 
      const keyNoteDown = event => {
          console.log(event);
@@ -41,8 +27,7 @@ buttons.forEach(button => button.addEventListener('keyup', shutup));
      } 
 
     document.addEventListener('keypress', keyNoteDown);
-    document.addEventListener('Keyup', keyNoteDown);
- 
+
 
 
 
