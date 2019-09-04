@@ -5,9 +5,10 @@ const playnote =() => {
     const note = button.dataset.note;
     const pito = button.dataset.pito;
     const audioId = `audio${note}`;
+    const audioIdpito= audioId+pito;
 
-    console.log(audioId);
-    const audio = document.getElementById(audioId);
+    console.log(audioIdpito);
+    const audio = document.getElementById(audioIdpito);
     console.log(audio);
     audio.pause();
     audio.currentTime = 0;
@@ -27,13 +28,3 @@ buttons.forEach(
          if(button) button.click();
      } 
     document.addEventListener('keypress', keyNoteDown);
-
-    const keyup = event => {
-        console.log(event);
-        const key = event.key;
-        console.log(key);
-        const button = document.querySelector(`button[data-key="${key}"]`);
-        if(button) button.click();
-    } 
-    object.addEventListener('keyup', keyup);
-
