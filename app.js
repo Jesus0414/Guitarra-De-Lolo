@@ -10,6 +10,7 @@ const playnote =() => {
     console.log(audio);
     audio.pause();
     audio.currentTime = 0;
+    audio
     audio.play();
     
 }
@@ -27,4 +28,3 @@ buttons.forEach(
      } 
 
     document.addEventListener('keypress', keyNoteDown);
-
