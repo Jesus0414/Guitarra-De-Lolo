@@ -1,29 +1,53 @@
 const buttons = document.querySelectorAll('button');
 
-const playnote =() => {
+const playnote = event => {
     const button = event.target;
     const note = button.dataset.note;
-    const audioId = `audio${note}${note}`;
-    const audioIdnote= audioId + note;
+    const pito = button.dataset.pito;
+    const audioId = `audio${pito}`;
+    
+    const audio = document.getElementById(audioId);
 
-    console.log(audioIdnote);
-    const audio = document.getElementById(audioIdnote);
-    console.log(audio);
-    audio.pause();
-    audio.currentTime = 0;
-    audio.play();
+    if(audio.currentTime == 0){
+        audio.play();
+    }
     
 }
 
-buttons.forEach(
-    button => 
-    button.addEventListener('click', playnote));
+const shutup = event => {
+    const key = event.key;
+    const button = document.querySelector(`button[data-key="${key}"]`);
+    if(button){ 
+        const pito = button.dataset.pito;
+        const audioId = `audio${pito}`;
+        //const note = button.dataset.note;
+        const audio = document.getElementById(audioId);
+        audio.pause();
+        audio.currentTime = 0;
+        console.log('stoped');
+    }
+}
 
-     const keyNoteDown = event => {
-         console.log(event);
-         const key = event.key;
-         console.log(key);
-         const button = document.querySelector(`button[data-key="${key}"]`);
-         if(button) button.click();
-     } 
-    document.addEventListener('keypress', keyNoteDown);
+
+const keyNoteDown = event => {
+    const key = event.key;
+    const button = document.querySelector(`button[data-key="${key}"]`);
+    if(button) button.click();
+} 
+
+const fretPressed = event =>{
+    const key = event.key;
+    const button = document.querySelector(`button[data-key="${key}"]`);
+    if(button){ 
+        console.log('pressing guitar fret');
+    }
+}
+
+buttons.forEach(button =>{ 
+    button.addEventListener('click', playnote);
+});
+
+document.addEventListener('keydown', keyNoteDown);
+document.addEventListener('keyup', shutup);
+document.addEventListener('keypress', fretPressed);
+ 
