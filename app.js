@@ -4,11 +4,12 @@ const playnote = event => {
     const button = event.target;
     const note = button.dataset.note;
     const audioId = `audio${note}`;
-    const sexta = 'audioS6';
+    const sexta = document.getElementById(audio);
+
     if (audioId != sexta){
         audioId + 'S6';
-        
-    } else;
+    } 
+    else;
     const audio = document.getElementById(audioId);
 
     if(audio.currentTime == 0){
@@ -24,9 +25,12 @@ const shutup = event => {
         const note = button.dataset.note;
         const audioId = `audio${note}`;
         const sexta = 'audioS6';
+
         if (audioId != sexta){
             audioId + 'S6';
         }
+        else;
+
         const audio = document.getElementById(audioId);
         audio.pause();
         audio.currentTime = 0;
