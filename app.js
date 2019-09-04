@@ -3,12 +3,11 @@ const buttons = document.querySelectorAll('button');
 const playnote =() => {
     const button = event.target;
     const note = button.dataset.note;
-    const pito = button.dataset.pito;
-    const audioId = `audio${note}`;
-    const audioIdpito= audioId+pito;
+    const audioId = `audio${note}${note}`;
+    const audioIdnote= audioId + note;
 
-    console.log(audioIdpito);
-    const audio = document.getElementById(audioIdpito);
+    console.log(audioIdnote);
+    const audio = document.getElementById(audioIdnote);
     console.log(audio);
     audio.pause();
     audio.currentTime = 0;
