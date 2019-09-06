@@ -20,9 +20,6 @@ const shutup = event => {
         const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}`;
         const audio = document.getElementById(audioId);
         audio.currentTime = 0;
-        /*if(audio.currentTime == 0 ){
-            audio.play();
-        }*/
         audio.pause();
         console.log('stoped');
     }
