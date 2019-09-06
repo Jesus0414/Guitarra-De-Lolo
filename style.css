@@ -1,3 +1,11 @@
 body{
     background-image: url(Sources/Background.gif);
 }
+
+img{
+
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
