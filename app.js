@@ -19,8 +19,8 @@ const shutup = event => {
         const note = button.dataset.note;
         const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}`;
         const audio = document.getElementById(audioId);
-        /*audio.currentTime = 0;
-        if(audio.currentTime == 0 ){
+        audio.currentTime = 0;
+        /*if(audio.currentTime == 0 ){
             audio.play();
         }*/
         audio.pause();
