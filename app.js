@@ -29,7 +29,6 @@ const shutup = event => {
     }
 }
 
-
 const keyNoteDown = event => {
     const key = event.key;
     const button = document.querySelector(`button[data-key="${key}"]`);
