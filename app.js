@@ -1,15 +1,12 @@
+
 const buttons = document.querySelectorAll('button');
+
+let currentFretPressed;
 
 const playnote = event => {
     const button = event.target;
     const note = button.dataset.note;
-    const audioId = `audio${note}`;
-    const sexta = document.getElementById(audio);
-
-    if (audioId != sexta){
-        audioId + 'S6';
-    } 
-    else;
+    const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}`;
     const audio = document.getElementById(audioId);
 
     if(audio.currentTime == 0){
@@ -19,18 +16,12 @@ const playnote = event => {
 }
 
 const shutup = event => {
+
     const key = event.key;
     const button = document.querySelector(`button[data-key="${key}"]`);
     if(button){ 
         const note = button.dataset.note;
-        const audioId = `audio${note}`;
-        const sexta = 'audioS6';
-
-        if (audioId != sexta){
-            audioId + 'S6';
-        }
-        else;
-
+        const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}`;
         const audio = document.getElementById(audioId);
         audio.pause();
         audio.currentTime = 0;
@@ -48,8 +39,14 @@ const keyNoteDown = event => {
 const fretPressed = event =>{
     const key = event.key;
     const button = document.querySelector(`button[data-key="${key}"]`);
-    if(button){ 
-        console.log('pressing guitar fret');
+    
+    if(button)
+    {
+        currentFretPressed = button.dataset.fret;
+        if(currentFretPressed){ 
+
+            console.log(`fret pressed: ${currentFretPressed}`);
+        }
     }
 }
 
@@ -58,6 +55,5 @@ buttons.forEach(button =>{
 });
 
 document.addEventListener('keydown', keyNoteDown);
+documnet.addEventListener('keypress', fretPressed);
 document.addEventListener('keyup', shutup);
-document.addEventListener('keypress', fretPressed);
- 
