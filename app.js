@@ -16,6 +16,7 @@ const playnote = event => {
 }
 
 const shutup = event => {
+
     const key = event.key;
     const button = document.querySelector(`button[data-key="${key}"]`);
     if(button){ 
@@ -47,8 +48,6 @@ const fretPressed = event =>{
             console.log(`fret pressed: ${currentFretPressed}`);
         }
     }
-   
-    
 }
 
 buttons.forEach(button =>{ 
@@ -56,6 +55,7 @@ buttons.forEach(button =>{
 });
 
 document.addEventListener('keydown', keyNoteDown);
+
 document.addEventListener('keyup', shutup);
-document.addEventListener('keypress', fretPressed);
+
 
