@@ -55,7 +55,6 @@ buttons.forEach(button =>{
 });
 
 document.addEventListener('keydown', keyNoteDown);
-
 document.addEventListener('keyup', shutup);
-
+document.addEventListener('keypress', fretPressed);
 
