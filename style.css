@@ -1,3 +1,48 @@
+:root{
+    --color-color1: #6e7da2;
+    --color-background: #575772;
+    --color-color2: #81899b;
+    --color-color3: #c0c5ce;
+    --color-color4: #aaaaaa;
+}
+
 body{
-    background-image: url(Sources/Background.gif);
+    background-color: #575772;
+    
+}
+
+.h{
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    margin: 0%;
+    color: #c0c5ce;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img{
+    position: relative;
+    vertical-align: middle;
+    height: 50%;
+    width: 50%;
+    margin: 10% 25%;
+}
+
+.Guitarra{
+    background-color: #6e7da2;
+    border-radius: 100%;
+}
+
+.botones{
+    position: relative;
+    text-align: center;
+    line-height: 25px;
+}
+
+footer{
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+position: relative;
+color: white;
+text-align: center;
+color: #aaaaaa;
 }
