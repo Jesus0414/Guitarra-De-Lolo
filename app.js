@@ -1,17 +1,14 @@
 const buttons = document.querySelectorAll('button');
-
 let currentFretPressed;
 
 const playnote = event => {
     const button = event.target;
     const note = button.dataset.note;
-    const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}`;
+    const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}` ;
     const audio = document.getElementById(audioId);
-
-    if(audio.currentTime == 0){
+    if(audio.currentTime === 0 ){
         audio.play();
     }
-    
 }
 
 const shutup = event => {
@@ -22,12 +19,11 @@ const shutup = event => {
         const note = button.dataset.note;
         const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}`;
         const audio = document.getElementById(audioId);
-        audio.pause();
         audio.currentTime = 0;
+        audio.pause();
         console.log('stoped');
     }
 }
-
 
 const keyNoteDown = event => {
     const key = event.key;
@@ -38,12 +34,10 @@ const keyNoteDown = event => {
 const fretPressed = event =>{
     const key = event.key;
     const button = document.querySelector(`button[data-key="${key}"]`);
-    
     if(button)
     {
         currentFretPressed = button.dataset.fret;
         if(currentFretPressed){ 
-
             console.log(`fret pressed: ${currentFretPressed}`);
         }
     }
