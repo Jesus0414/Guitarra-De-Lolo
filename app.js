@@ -12,16 +12,17 @@ const playnote = event => {
 }
 
 const shutup = event => {
-
     const key = event.key;
     const button = document.querySelector(`button[data-key="${key}"]`);
     if(button){ 
         const note = button.dataset.note;
         const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}`;
         const audio = document.getElementById(audioId);
+        console.log(audioId);
         audio.currentTime = 0;
         audio.pause();
         console.log('stoped');
+        currentFretPressed = null;
     }
 }
 
