@@ -22,6 +22,7 @@ const shutup = event => {
         audio.currentTime = 0;
         audio.pause();
         console.log('stoped');
+        currentFretPressed = null;
     }
 }
 

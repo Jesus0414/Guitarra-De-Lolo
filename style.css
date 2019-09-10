@@ -5,7 +5,6 @@
     --color-color3: #c0c5ce;
     --color-color4: #aaaaaa;
 }
-
 body{
     background-color: #575772;
     
@@ -27,12 +26,10 @@ img{
     width: 50%;
     margin: 10% 25%;
 }
-
 .Guitarra{
     background-color: #6e7da2;
     border-radius: 100%;
 }
-
 .botones{
     position: relative;
     text-align: center;
