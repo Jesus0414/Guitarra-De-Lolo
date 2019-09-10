@@ -5,6 +5,7 @@ const playnote = event => {
     const button = event.target;
     const note = button.dataset.note;
     const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}` ;
+    //const audio = document.querySelector( currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}`);
     const audio = document.getElementById(audioId);
     if(audio.currentTime === 0 ){
         audio.play();
@@ -12,7 +13,6 @@ const playnote = event => {
 }
 
 const shutup = event => {
-
     const key = event.key;
     const button = document.querySelector(`button[data-key="${key}"]`);
     if(button){ 
