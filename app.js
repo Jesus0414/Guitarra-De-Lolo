@@ -2,8 +2,6 @@
 const buttons = document.querySelectorAll('button');
 let currentFretPressed;
 
-let currentFretPressed;
-
 const playnote = event => {
     const button = event.target;
     const note = button.dataset.note;
