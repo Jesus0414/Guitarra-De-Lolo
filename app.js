@@ -1,14 +1,27 @@
 const buttons = document.querySelectorAll('button');
 let currentFretPressed;
 
-const playnote = event =>{
+const playnote = event => {
     const button = event.target;
     const note = button.dataset.note;
-    const audioId = currentFretPressed ? `audio${note}${currentFretPressed}` : `audio${note}`;
-    console.log(audioId);
-    const audio = document.getElementById(audioId);
-    audio.currentTime = 0;
-    audio.play();
+    const fret = button.dataset.fret;
+    if (fret === false){
+        const audioId = `audio${note}`;
+        const audio = document.getElementById(audioId);
+        console.log(audioId);
+        if(audio.currentTime === 0 ){
+            audio.play();
+        }
+    }
+    else{
+        const audioId = `audio${fret}` ;
+        const audio = document.getElementById(audioId);
+        console.log(audioId);
+        if(audio.currentTime === 0 ){
+            audio.play();
+        }
+    }
+    
     console.log(audio);
 }
 
@@ -28,14 +41,14 @@ const shutup = event => {
     }
 }
 
-const keyNoteDown = event =>{
+const keyNoteDown = event => {
     console.log(event);
     const key = event.key;
     console.log(key);
-    const button = document.querySelector(`button[data-key="${key}"]`)
+    const button = document.querySelector(`button[data-key="${key}"]`);
     if(button) button.click();
+} 
 
-}
 const fretPressed = event =>{
     const key = event.key;
     const button = document.querySelector(`button[data-key="${key}"]`);
@@ -48,10 +61,10 @@ const fretPressed = event =>{
     }
 }
 
-buttons.forEach(
-    button => button.addEventListener('click', playnote)
-)
+buttons.forEach(button =>{ 
+    button.addEventListener('click', playnote);
+});
 
-document.addEventListener('keypress', fretPressed);
 document.addEventListener('keydown', keyNoteDown);
+document.addEventListener('keypress', fretPressed);
 document.addEventListener('keyup', shutup);
